@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import Chart from 'chart.js';
+import Chart from 'chart.js/dist/Chart.js'
 import CountrySelector from './CountrySelector';
 
 class ChartHandler {
