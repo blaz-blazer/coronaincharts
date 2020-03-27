@@ -1,0 +1,17 @@
+.site-footer {
+  margin-top: 1.5rem;
+  background-color: $blue;
+  color: $white;
+  border-top: .25rem solid $red;
+
+  &__text {
+    margin: 0;
+    text-align: center;
+    margin: 2rem 0;
+
+    &__link {
+      color: $white;
+    }
+  }
+
+}

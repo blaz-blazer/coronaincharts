@@ -1,0 +1,43 @@
+.country-selector {
+
+  &__input-container {
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+
+    &--margin-top {
+      margin-top: 1.5rem;
+    }
+  }
+
+  &__input {
+    height: 44px;
+    border: 1px solid $blue;
+    padding: .5rem;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    display: inline-block;
+    width: 100%;
+
+    &__btn {
+      border: none;
+      height: 44px;
+      background-color: $blue;
+      color: $white;
+      border-radius: 0;
+      width: 135px;
+      text-transform: uppercase;
+      transition: all ease 0.3s;
+      position: absolute;
+      right: 0;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $lightBlue;
+      }
+
+    }
+
+  }
+
+}

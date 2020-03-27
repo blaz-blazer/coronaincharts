@@ -1,0 +1,19 @@
+.alert {
+
+  &__text {
+    background-color: $red;
+    padding: .5rem;
+    display: block;
+    color: $white;
+    font-weight: 500;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 1rem;
+    display: none;
+
+    &--active {
+      display: block;
+    }
+    
+  }
+}

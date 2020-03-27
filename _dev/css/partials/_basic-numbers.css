@@ -1,0 +1,49 @@
+.basic-numbers {
+
+  &__container {
+    margin-top: 1.5rem;
+    @mixin atMedium {
+      display: flex;
+    }
+  }
+
+  &__box {
+    border: 2px solid $blue;
+    border-radius: 5px;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+
+    @mixin atMedium {
+      width: 25%;
+      margin-right: 3rem;
+      margin-bottom: 0;
+    }
+
+    &:last-child {
+      @mixin atMedium {
+        margin-right: 0;
+      }
+    }
+
+    &__title {
+      margin: 0;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 500;
+      background-color: $blue;
+      color: $white;
+      padding: .3rem;
+    }
+
+    &__text {
+      text-align: center;
+      font-size: 2.5rem;
+      margin: .5rem;
+      color: $red;
+    }
+
+  }
+
+
+}

@@ -1,0 +1,26 @@
+.social-share {
+  text-align: center;
+  margin-bottom: 1.5rem;
+
+  a {
+    text-decoration: none;
+  }
+
+  &__icon {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    margin-right: .5rem;
+
+    &--fb {
+      fill: #1877F2;
+    }
+
+    &--twitter {
+      fill: #1DA1F2;
+    }
+
+  }
+
+
+}
