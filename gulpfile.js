@@ -90,6 +90,8 @@ function copy_files() {
     '!./.gitignore',
     '!./css/app.css',
     '!./js/app.js',
+    '!./LICENSE.md',
+    '!./README.md',
   ]
 
   return gulp.src(pathsToCopy) //source
