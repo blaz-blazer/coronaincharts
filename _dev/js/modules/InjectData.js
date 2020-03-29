@@ -27,7 +27,12 @@ class InjectData {
       active.push(((val.confirmed - val.recovered - val.deaths)  || 0) < 0 ? 0 : (val.confirmed - val.recovered - val.deaths));
     });
 
-    let chartHandler = new ChartHandler(dates, confirmed, recovered, deaths, active, this.data);
+    let confirmedDifference = this.getDifferenceByDay(confirmed);
+    let recoveredDifference = this.getDifferenceByDay(recovered);
+    let deathsDifference = this.getDifferenceByDay(deaths);
+    let activeDifference = this.getDifferenceByDay(active);
+
+    let chartHandler = new ChartHandler(dates, confirmed, recovered, deaths, active, confirmedDifference, recoveredDifference, deathsDifference, activeDifference, this.data);
 
     // total cases
     let totalCases = confirmed[confirmed.length - 1] || confirmed.reduce((max, n) => n > max ? n : max);
@@ -39,6 +44,20 @@ class InjectData {
 
     let lastDate = dates[dates.length - 1];
     this.lastUpdatedContainer.text(lastDate);
+
+  }
+
+  getDifferenceByDay(set) {
+    let newSet = [];
+    set.forEach( (value, index) => {
+      if(index == 0) {
+        newSet.push(0);
+      } else {
+        newSet.push(value - set[index - 1])
+      }
+    })
+
+    return newSet;
   }
 
 }

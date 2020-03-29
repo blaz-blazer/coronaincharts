@@ -4,15 +4,14 @@ import CountryFlags from './CountryFlags';
 import autoComplete from '../../../node_modules/js-autocomplete/auto-complete';
 
 class CountrySelector {
-  constructor(data, chartDetails, chartTotal) {
+  constructor(data, displayedCharts) {
     this.data = data;
     this.input = $('.js-country-selector');
     this.btn = $('.js-search-btn');
     this.alert = $('.js-alert-text');
     this.chartTotal = $('.js-chart-total');
     this.locationContainer = $('.js-location');
-    this.chartTotal = chartTotal;
-    this.chartDetails = chartDetails;
+    this.displayedCharts = displayedCharts;
     this.events();
   }
 
@@ -62,10 +61,9 @@ class CountrySelector {
 
     this.alert.removeClass('alert__text--active')
     automCompleteCountry.destroy();
-    this.chartTotal.destroy();
-    this.chartDetails.destroy();
+    this.destroyCharts();
     this.btn.off();
-    $(document).off('keypress'); 
+    $(document).off('keypress');
     let injectData = new InjectData(this.data, country);
     this.locationContainer.text(country);
     let countryFlags = new CountryFlags(country);
@@ -77,6 +75,12 @@ class CountrySelector {
        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
    }
    return splitStr.join(' ');
+ }
+
+ destroyCharts() {
+   this.displayedCharts.forEach( (value, index) => {
+     value.destroy();
+   });
  }
 
 
