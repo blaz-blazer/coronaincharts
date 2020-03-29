@@ -1,16 +1,19 @@
-let gulp = require('gulp');
-let watch = require ('gulp-watch');
-let browserSync = require('browser-sync').create();
-let postcss = require('gulp-postcss');
-let autoprefixer = require('autoprefixer');
-let cssvars = require('postcss-simple-vars');
-let nested = require('postcss-nested');
-let cssImport = require('postcss-import');
-let mixins = require('postcss-mixins');
-let hexrgba = require('postcss-hexrgba');
-let webpack = require ('webpack');
-var del = require('del');
-var cleanCSS = require('gulp-clean-css');
+const gulp = require('gulp');
+const watch = require ('gulp-watch');
+const browserSync = require('browser-sync').create();
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cssvars = require('postcss-simple-vars');
+const nested = require('postcss-nested');
+const cssImport = require('postcss-import');
+const mixins = require('postcss-mixins');
+const hexrgba = require('postcss-hexrgba');
+const webpack = require ('webpack');
+const del = require('del');
+const cleanCSS = require('gulp-clean-css');
+const rev = require('gulp-rev');
+const revReplace = require("gulp-rev-replace");
+
 
 //compiles public css from source
 function cssCompile() {
@@ -70,7 +73,7 @@ gulp.task('watch', gulp.parallel(browser_sync, watch_files));
 
 // CREATE A PRODUCTION VERSION
 
-gulp.task('build', gulp.series(clean, copy_files, minify_css, uglify_js));
+gulp.task('build', gulp.series(clean, copy_files, minify_css, uglify_js, bust_css_cache, bust_js_cache, rewrite_css, rewrite_js));
 
 function clean() {
   return del(['./dist/']);
@@ -115,4 +118,34 @@ function uglify_js(callback) {
     console.log(stats.toString());
     callback();
   });
+}
+
+function bust_css_cache() {
+  return gulp.src('./dist/css/app.css')
+    .pipe(rev())
+    .pipe(gulp.dest('./dist/css'))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest('./dist/css'));
+}
+
+function bust_js_cache() {
+  return gulp.src('./dist/js/app.js')
+    .pipe(rev())
+    .pipe(gulp.dest('./dist/js'))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest('./dist/js'));
+}
+
+function rewrite_css() {
+  let manifest = gulp.src('./dist/css/rev-manifest.json');
+  return gulp.src('./dist/index.html')
+    .pipe(revReplace({ manifest }))
+    .pipe(gulp.dest('./dist/'));
+}
+
+function rewrite_js() {
+  let manifest = gulp.src('./dist/js/rev-manifest.json');
+  return gulp.src('./dist/index.html')
+    .pipe(revReplace({ manifest }))
+    .pipe(gulp.dest('./dist/'));
 }
