@@ -137,6 +137,44 @@
 
           </p>
         </div>
+
+      </div>
+
+      <div class="basic-numbers__container">
+
+        <div class="basic-numbers__box">
+          <p class="basic-numbers__box__title">
+            Total Cases/Million Pop.
+          </p>
+          <p class="basic-numbers__box__text js-total-million">
+
+          </p>
+        </div>
+        <div class="basic-numbers__box">
+          <p class="basic-numbers__box__title">
+            Active Cases/Million Pop.
+          </p>
+          <p class="basic-numbers__box__text js-active-million">
+
+          </p>
+        </div>
+        <div class="basic-numbers__box">
+          <p class="basic-numbers__box__title">
+            Recovered/Million Pop.
+          </p>
+          <p class="basic-numbers__box__text js-recovered-million">
+
+          </p>
+        </div>
+        <div class="basic-numbers__box">
+          <p class="basic-numbers__box__title">
+            Deaths/Million Pop.
+          </p>
+          <p class="basic-numbers__box__text js-deaths-million">
+
+          </p>
+        </div>
+
       </div>
 
     </div>
@@ -226,6 +264,20 @@
       </h3>
       <div class="chart-container">
         <canvas class="js-chart-fatality-diff" width="400" height="400" aria-label="Increase in Fatalities per Day" role="img"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-fatality-comparison-million bb-div">
+    <div class="wrapper">
+      <h3 class="chart-fatality-comparison-million__title heading heading--medium">
+        Comparison Chart: <span class="js-location">Germany</span> to Italy
+      </h3>
+      <p class="chart-fatality-comparison-million__text">
+        This chart compares total fatalities per million population of <span class="js-location">Germany</span> to total fatalities per million population of Italy, since the first confirmed case in each country. Fatalities are the most suitable metric to track the widespread of pandemic for each country because countries differ a lot in testing capabilities.
+      </p>
+      <div class="chart-container">
+        <canvas class="js-chart-comparison" width="400" height="400" aria-label="Comparison Chart" role="img"></canvas>
       </div>
     </div>
   </div>

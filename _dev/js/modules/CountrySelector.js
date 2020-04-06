@@ -16,6 +16,7 @@ class CountrySelector {
   }
 
   events() {
+
     let availableCountries = Object.keys(this.data);
 
     let that = this;

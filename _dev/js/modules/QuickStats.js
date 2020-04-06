@@ -16,21 +16,9 @@ class QuickStats {
 
   events() {
     this.totalContainer.text(this.totalCases);
-    this.activeContainer.text(this.totalActiveCases); 
+    this.activeContainer.text(this.totalActiveCases);
     this.recoveredContainer.text(this.totalRecovered);
     this.deathsContainer.text(this.totalDeaths);
-  }
-
-  test() {
-    // let tabNumber = $(event.currentTarget).data('tab');
-    // let tabContentToShow = $('.js-rmp-tab-content--' + tabNumber );
-    // // remove classes
-    // $(this.tabs).removeClass('rmp-menu__tabs__tab--selected');
-    // $(this.tabContents).removeClass('rmp-tab-content--visible');
-    // // add classes
-    // $(event.currentTarget).addClass('rmp-menu__tabs__tab--selected');
-    // $(tabContentToShow).addClass('rmp-tab-content--visible');
-    // Waypoint.refreshAll()
   }
 
 }

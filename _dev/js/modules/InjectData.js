@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import QuickStats from './QuickStats';
 import ChartHandler from './ChartHandler';
+import PerPopulationData from './PerPopulationData';
 
 class InjectData {
   constructor( data, country ) {
@@ -44,6 +45,8 @@ class InjectData {
 
     let lastDate = dates[dates.length - 1];
     this.lastUpdatedContainer.text(lastDate);
+
+    let perPopulationData = new PerPopulationData(totalCases, totalDeaths, totalRecovered, totalActiveCases, this.country, this.data);
 
   }
 
