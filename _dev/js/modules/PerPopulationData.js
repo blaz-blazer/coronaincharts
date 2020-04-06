@@ -67,9 +67,6 @@ class PerPopulationData {
           labels = italyDeaths[2];
         }
 
-        console.log(selectedCountryDeaths);
-        console.log(italyDeaths);
-
         let comparisonChart = new Chart($('.js-chart-comparison'), {
           type: 'line',
           data: {
