@@ -240,7 +240,7 @@ class CountryFlags {
       'UA' : 'Ukraine',
       'AE' : 'United Arab Emirates',
       'GB' : 'United Kingdom',
-      'US' : 'United States',
+      'US' : 'US',
       'UM' : 'United States Outlying Islands',
       'UY' : 'Uruguay',
       'UZ' : 'Uzbekistan',

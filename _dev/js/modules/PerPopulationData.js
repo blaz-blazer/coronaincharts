@@ -22,6 +22,11 @@ class PerPopulationData {
   events() {
     this.comparisonChart.replaceWith(this.comparisonChartContent);
 
+    // fix for USA - country name incompatibility 
+    if(this.country === 'US') {
+      this.country = 'USA';
+    }
+
     fetch("https://restcountries.eu/rest/v2/name/" + this.country)
       .then(response => response.json())
       .then(data => {
@@ -123,6 +128,11 @@ class PerPopulationData {
     let firstConfirmedCase = false;
     let days = [];
     let day = 1;
+
+    // fix for USA - country name incompatibility
+    if(country === 'USA') {
+      country = 'US';
+    }
 
     $.each(this.data[country], (i, val) =>  {
       if(val.confirmed) {
