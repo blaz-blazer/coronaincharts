@@ -30,7 +30,7 @@
     "webpack": "^4.41.3"
   },
   "dependencies": {
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "country-flag-icons": "^1.2.0",
     "jquery": "^3.4.1",
     "js-autocomplete": "^1.0.4",
